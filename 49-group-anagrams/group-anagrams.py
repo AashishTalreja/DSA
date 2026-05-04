@@ -1,11 +1,8 @@
+from collections import defaultdict
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        x={}
-        for i in range(len(strs)):
-            y=tuple(sorted([ord(a) for a in strs[i]]))
-            if y not in x:
-                x[y]=[]
-            x[y].append(strs[i])
-        return list(x.values())
-
-
+        counts=defaultdict(list)
+        for i in strs:
+            key="".join(sorted(i))
+            counts[key].append(i)
+        return list(counts.values())
