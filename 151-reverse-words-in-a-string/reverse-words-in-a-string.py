@@ -1,23 +1,22 @@
 class Solution:
     def reverseWords(self, s: str) -> str:
-        # x=[]
-        # left=0
-        # right=len(s)-1
+        stack=[]
+        x=[]
+
+        for i in s:
+            if i!=" ":
+                x.append(i)
+            
+            elif x:
+                stack.append("".join(x))
+                x=[]
+
+        if x:
+            stack.append("".join(x))
         
+        result=[]
+        while stack:
+            result.append(stack.pop())
 
-        # while left<right:
-        #     if s[left]==" ":
-        #         y="".join(s[:left])
-        #         x.append(y)
+        return " ".join(result)
 
-        # return str(x)
-                
-        x=s.split()
-        x=list(x)
-        x.reverse()
-        y=[]
-        
-
-        y=" ".join(x)
-
-        return y
